@@ -62,7 +62,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $posts =Posts::find()->andWhere(['status_id'=>'1'])->all();
+        $posts =Posts::find()->andWhere(['status_id'=>'1'])->orderBy('sort')->all();
         return $this->render('index',['posts'=>$posts]);
     }
 

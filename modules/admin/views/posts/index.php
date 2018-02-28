@@ -33,10 +33,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'picture',
-            'date_create',
+            'date_create:date',
             //'date_update',
             //'url:url',
-            //'status_id',
+            [
+                    'attribute' => 'status_id',
+                    'value' => function ($model) {
+                        if ($model->status_id == 1){
+                            return Html::button('On', ['class' => 'btn btn-success btn-sm']);
+                        } else {
+                            return Html::button('Off', ['class' => 'btn btn-danger btn-sm']);
+                        }
+                    },
+                    'format' => 'raw',
+            ],
+
             //'sort',
 
             ['class' => 'yii\grid\ActionColumn'],
