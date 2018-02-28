@@ -45,6 +45,21 @@ class PostsController extends Controller
         ]);
     }
 
+    public function actionOne($url)
+    {
+        if ($post = Posts::find()->andWhere(['url'=>$url])->one()){
+            return $this->render('one',['post'=>$post]);
+        }
+            throw new NotFoundHttpException('ой нет такого поста');
+
+    }
+
+    public function actionAll()
+    {
+        $posts = Posts::find()->andWhere(['status_id'=>1])->all();
+        return $this->render('all',['posts'=>$posts]);
+    }
+
     /**
      * Displays a single Posts model.
      * @param integer $id

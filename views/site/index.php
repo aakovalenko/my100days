@@ -23,7 +23,7 @@ $this->title = 'My 100 Days';
             <div class="col-lg-4">
                 <h2><?=$post->title; ?></h2>
                 <p><?=\yii\helpers\StringHelper::truncate($post->text,150,'...'); ?>
-                    <?/*= \yii\helpers\Html::a('Далее', ['posts/view', 'id' => $id], ['class' => 'profile-link']) */?>
+                    <?= \yii\helpers\Html::a('Подробнее', ['posts/one', 'url' => $post->url], ['class' => 'profile-link']) ?>
                 </p>
 
             </div>

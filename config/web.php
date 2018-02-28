@@ -58,8 +58,14 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+
                 '<module>/<controller>/<action>/<id:[\d]+>' => '<module>/<controller>/<action>',
+                'posts/<url>' => 'posts/<url>',
                 '<controller>/<action>/<id:[\d]+>' => 'admin',
+
+                    'about' => 'site/about',
+                    'index' => 'site/index',
+                'contact' => 'site/contact'
             ],
         ],
 

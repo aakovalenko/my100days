@@ -40,9 +40,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'status_id',
                     'value' => function ($model) {
                         if ($model->status_id == 1){
-                            return Html::button('On', ['class' => 'btn btn-success btn-sm']);
+                            return Html::button('On', ['class' => 'btn btn-success btn-sm admin']);
                         } else {
-                            return Html::button('Off', ['class' => 'btn btn-danger btn-sm']);
+                            return Html::button('Off', ['class' => 'btn btn-danger btn-sm admin']);
                         }
                     },
                     'format' => 'raw',
