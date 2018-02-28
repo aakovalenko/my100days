@@ -13,8 +13,11 @@ use yii\db\ActiveRecord;
  * @property string $title
  * @property string $text
  * @property string $picture
- * @property string $date_create
- * @property string $date_update
+ * @property int $date_create
+ * @property int $date_update
+ * @property string $url
+ * @property int $status_id
+ * @property int $sort
  */
 class Posts extends \yii\db\ActiveRecord
 {
@@ -48,9 +51,11 @@ class Posts extends \yii\db\ActiveRecord
     {
         return [
             [['text'], 'string'],
-            [['date_create', 'date_update'], 'safe'],
+            [['date_create', 'date_update', 'status_id', 'sort'], 'integer'],
             [['title'], 'string', 'max' => 100],
             [['picture'], 'string', 'max' => 255],
+            [['url'], 'string', 'max' => 150],
+            [['sort'],'integer','max'=>99,'min'=>1]
         ];
     }
 
@@ -66,6 +71,9 @@ class Posts extends \yii\db\ActiveRecord
             'picture' => 'Picture',
             'date_create' => 'Date Create',
             'date_update' => 'Date Update',
+            'url' => 'Url',
+            'status_id' => 'Status',
+            'sort' => 'Sort',
         ];
     }
 }

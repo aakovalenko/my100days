@@ -18,8 +18,8 @@ class PostsSearch extends Posts
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['title', 'text', 'picture', 'date_create', 'date_update'], 'safe'],
+            [['id', 'date_create', 'date_update', 'status_id', 'sort'], 'integer'],
+            [['title', 'text', 'picture', 'url'], 'safe'],
         ];
     }
 
@@ -62,11 +62,14 @@ class PostsSearch extends Posts
             'id' => $this->id,
             'date_create' => $this->date_create,
             'date_update' => $this->date_update,
+            'status_id' => $this->status_id,
+            'sort' => $this->sort,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'text', $this->text])
-            ->andFilterWhere(['like', 'picture', $this->picture]);
+            ->andFilterWhere(['like', 'picture', $this->picture])
+            ->andFilterWhere(['like', 'url', $this->url]);
 
         return $dataProvider;
     }

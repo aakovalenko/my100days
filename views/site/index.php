@@ -22,7 +22,10 @@ $this->title = 'My 100 Days';
                 <?php foreach (Posts::find()->all() as $post): ?>
             <div class="col-lg-4">
                 <h2><?=$post->title; ?></h2>
-                <p><?=\yii\helpers\StringHelper::truncate($post->text,150,'...'); ?></p>
+                <p><?=\yii\helpers\StringHelper::truncate($post->text,150,'...'); ?>
+                    <?/*= \yii\helpers\Html::a('Далее', ['posts/view', 'id' => $id], ['class' => 'profile-link']) */?>
+                </p>
+
             </div>
                 <?php endforeach;?>
 
