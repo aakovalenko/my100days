@@ -1,7 +1,7 @@
 <?php
 
-use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\search\PostsSearch */
@@ -23,13 +23,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'title',
-            'text:ntext',
+            [
+                'attribute' => 'text',
+                'value' => function ($model) {
+                    return \yii\helpers\StringHelper::truncate($model->text, 100);
+                }
+            ],
             'picture',
-            'date_create',
+            'date_create:datetime',
             //'date_update',
 
             ['class' => 'yii\grid\ActionColumn'],
