@@ -19,7 +19,7 @@ $this->title = 'My 100 Days';
 
         <div class="row">
 
-                <?php foreach (Posts::find()->all() as $post): ?>
+                <?php foreach ($posts as $post): ?>
             <div class="col-lg-4">
                 <h2><?=$post->title; ?></h2>
                 <p><?=\yii\helpers\StringHelper::truncate($post->text,150,'...'); ?>
