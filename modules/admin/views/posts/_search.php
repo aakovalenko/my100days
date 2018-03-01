@@ -15,7 +15,6 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'title') ?>
 
@@ -27,9 +26,9 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'date_update') ?>
 
-    <?php // echo $form->field($model, 'url') ?>
+    <?php  echo $form->field($model, 'url') ?>
 
-    <?php // echo $form->field($model, 'status_id') ?>
+    <?php  echo $form->field($model, 'status_id') ?>
 
     <?php // echo $form->field($model, 'sort') ?>
 
