@@ -60,7 +60,7 @@ $config = [
             'rules' => [
 
                 '<module>/<controller>/<action>/<id:[\d]+>' => '<module>/<controller>/<action>',
-                'posts/<url>' => 'posts/<url>',
+                'posts/<url:[\w]+>' => 'posts/one',
                 '<controller>/<action>/<id:[\d]+>' => 'admin',
 
                     'about' => 'site/about',

@@ -55,6 +55,7 @@ class Posts extends \yii\db\ActiveRecord
             [['title'], 'string', 'max' => 100],
             [['picture'], 'string', 'max' => 255],
             [['url'], 'string', 'max' => 150],
+            [['url'],'required'],
             [['sort'],'integer','max'=>99,'min'=>1]
         ];
     }

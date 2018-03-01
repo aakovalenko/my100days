@@ -9,6 +9,7 @@ use yii\grid\GridView;
 
 $this->title = 'Posts';
 $this->params['breadcrumbs'][] = $this->title;
+$dataProvider->pagination->pageSize = 7;
 ?>
 <div class="posts-index">
 
@@ -20,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= GridView::widget([
+            'layout' => '{items}{pager}',
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -31,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                     return \yii\helpers\StringHelper::truncate($model->text, 150);
                 }
+
             ],
             'picture',
             'date_create:date',
