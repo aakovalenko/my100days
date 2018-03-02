@@ -14,7 +14,7 @@ $dataProvider->pagination->pageSize = 7;
 <div class="posts-index">
 
     <h1><?= Html::encode($this->title)?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['models' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create Posts', ['create'], ['class' => 'btn btn-success']) ?>

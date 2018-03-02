@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="posts-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['models' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create Posts', ['create'], ['class' => 'btn btn-success']) ?>
@@ -37,10 +37,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'date_create:datetime',
             //'date_update',
             //'url:url',
-            'status_id',
+            //'status_id',
             //'sort',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+            'template' => '{view}'
+            ],
         ],
     ]); ?>
 </div>

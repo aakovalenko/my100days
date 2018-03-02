@@ -25,13 +25,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date_create') ?>
 
-    <?php // echo $form->field($model, 'date_update') ?>
+    <?php // echo $form->field($models, 'date_update') ?>
 
-    <?php // echo $form->field($model, 'url') ?>
+    <?php // echo $form->field($models, 'url') ?>
 
-    <?php // echo $form->field($model, 'status_id') ?>
+    <?php // echo $form->field($models, 'status_id') ?>
 
-    <?php // echo $form->field($model, 'sort') ?>
+    <?php // echo $form->field($models, 'sort') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

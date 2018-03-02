@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PostsController implements the CRUD actions for Posts model.
+ * PostsController implements the CRUD actions for Posts models.
  */
 class PostsController extends Controller
 {
@@ -45,20 +45,20 @@ class PostsController extends Controller
     }
 
     /**
-     * Displays a single Posts model.
+     * Displays a single Posts models.
      * @param integer $id
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException if the models cannot be found
      */
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'models' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new Posts model.
+     * Creates a new Posts models.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -71,16 +71,16 @@ class PostsController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'models' => $model,
         ]);
     }
 
     /**
-     * Updates an existing Posts model.
+     * Updates an existing Posts models.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException if the models cannot be found
      */
     public function actionUpdate($id)
     {
@@ -91,16 +91,16 @@ class PostsController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
+            'models' => $model,
         ]);
     }
 
     /**
-     * Deletes an existing Posts model.
+     * Deletes an existing Posts models.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException if the models cannot be found
      */
     public function actionDelete($id)
     {
@@ -110,11 +110,11 @@ class PostsController extends Controller
     }
 
     /**
-     * Finds the Posts model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * Finds the Posts models based on its primary key value.
+     * If the models is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Posts the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * @return Posts the loaded models
+     * @throws NotFoundHttpException if the models cannot be found
      */
     protected function findModel($id)
     {

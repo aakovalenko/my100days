@@ -29,8 +29,9 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\BackendUser',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -58,14 +59,16 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'posts' => 'posts/index',
+                'posts/create' => 'posts/create',
+                'contact' => 'site/contact',
+                'about' => 'site/about',
 
+                    'posts/<url:[\w]+>' => 'posts/view/<id:[\w]+>',
                 '<module>/<controller>/<action>/<id:[\d]+>' => '<module>/<controller>/<action>',
                 'posts/<url:[\w]+>' => 'posts/one',
                 '<controller>/<action>/<id:[\d]+>' => 'admin',
 
-                    'about' => 'site/about',
-                    'index' => 'site/index',
-                'contact' => 'site/contact'
             ],
         ],
 

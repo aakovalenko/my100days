@@ -7,7 +7,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "posts".
+ * This is the models class for table "posts".
  *
  * @property int $id
  * @property string $title
@@ -41,6 +41,7 @@ class Posts extends \yii\db\ActiveRecord
                 // если вместо метки времени UNIX используется datetime:
                 // 'value' => new Expression('NOW()'),
             ],
+
         ];
     }
 
@@ -51,7 +52,7 @@ class Posts extends \yii\db\ActiveRecord
     {
         return [
             [['text'], 'string'],
-            [['date_create', 'date_update', 'status_id', 'sort'], 'integer'],
+            [['date_create', 'date_update', 'status_id', 'sort','author_id'], 'integer'],
             [['title'], 'string', 'max' => 100],
             [['picture'], 'string', 'max' => 255],
             [['url'], 'string', 'max' => 150],
@@ -75,6 +76,7 @@ class Posts extends \yii\db\ActiveRecord
             'url' => 'Url',
             'status_id' => 'Status',
             'sort' => 'Sort',
+            'author_id' => 'Author'
         ];
     }
 }

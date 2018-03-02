@@ -66,7 +66,20 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 "items" => [
                                     ["label" => "Home", "url" => "/", "icon" => "home"],
                                     ["label" => "Layout", "url" => ["site/layout"], "icon" => "files-o"],
-                                    ["label" => "Posts", "url" => ["posts/index"], "icon" => "glyphicon glyphicon-book"],
+                                    ["label" => "Posts", "url" => ["posts/index"], "icon" => "glyphicon glyphicon-comment"],
+                                    ["label" => "User", "url" => ["user/index"], "icon" => "glyphicon glyphicon-user"],
+
+                                    [
+                                        "label" => "RBAC",
+                                        "icon" => "th",
+                                        "url" => "#",
+                                        "items" => [
+                                            ["label" => "Auth_assignment", "url" => ["auth-assignment/index"]],
+                                            ["label" => "Auth_item", "url" => ["auth-item/index"]],
+                                            ["label" => "Auth_item_child", "url" => ["auth-item-child/index"]],
+                                            ["label" => "Auth_rule", "url" => ["auth-rule/index"]],
+                                        ],
+                                    ],
 
                                     ["label" => "Error page", "url" => ["site/error-page"], "icon" => "close"],
                                     [
