@@ -81,13 +81,14 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
+       // var_dump($model);die();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
 
         $model->password = '';
         return $this->render('login', [
-            'models' => $model,
+            'model' => $model,
         ]);
     }
 
@@ -141,7 +142,7 @@ class SiteController extends Controller
             return $this->refresh();
         }
         return $this->render('contact', [
-            'models' => $model,
+            'model' => $model,
         ]);
     }
 

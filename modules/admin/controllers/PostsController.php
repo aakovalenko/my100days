@@ -53,7 +53,7 @@ class PostsController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'models' => $this->findModel($id),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -71,7 +71,7 @@ class PostsController extends Controller
         }
 
         return $this->render('create', [
-            'models' => $model,
+            'model' => $model,
         ]);
     }
 
@@ -91,7 +91,7 @@ class PostsController extends Controller
         }
 
         return $this->render('update', [
-            'models' => $model,
+            'model' => $model,
         ]);
     }
 

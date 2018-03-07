@@ -14,7 +14,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'item_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'user_id')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'user_id')->dropDownList(
+        \yii\helpers\ArrayHelper::map(\app\models\BackendUser::find()->all(),'id','username'),['prompt' => 'Select User: ']) ?>
 
 
     <div class="form-group">

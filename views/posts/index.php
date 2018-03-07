@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\assets\AdminAsset;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\search\PostsSearch */
@@ -9,6 +10,9 @@ use yii\grid\GridView;
 
 $this->title = 'Posts';
 $this->params['breadcrumbs'][] = $this->title;
+
+AdminAsset::register($this);
+
 ?>
 <div class="posts-index">
 
@@ -46,3 +50,18 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 </div>
+
+<?php
+echo '<br>';
+echo "TASK #1";
+
+$arr = [0, 2, 3, 3, 3, 4, 5, 6, 6];
+
+print_r(array_count_values($arr));
+
+
+
+
+
+
+

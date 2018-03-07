@@ -4,6 +4,7 @@ use app\models\Posts;
 /* @var $this yii\web\View */
 
 $this->title = 'My 100 Days';
+
 ?>
 <div class="site-index">
 
@@ -20,11 +21,12 @@ $this->title = 'My 100 Days';
         <div class="row">
 
                 <?php foreach ($posts as $post): ?>
-            <div class="col-lg-4">
+            <div class="col-lg-12">
                 <h2><?=$post->title; ?></h2>
                 <p><?=\yii\helpers\StringHelper::truncate($post->text,150,'...'); ?>
                     <?= \yii\helpers\Html::a('Подробнее', ['posts/one', 'url' => $post->url], ['class' => 'profile-link']) ?>
                 </p>
+                <hr>
 
             </div>
                 <?php endforeach;?>

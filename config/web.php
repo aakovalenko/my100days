@@ -25,6 +25,7 @@ $config = [
         ],
         'authManager' => [
             'class' => 'yii\rbac\DbManage',
+            'cache' => 'cache'
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

@@ -52,9 +52,11 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
+
         return $this->render('view', [
-            'models' => $this->findModel($id),
+            'model' => $this->findModel($id),
         ]);
+
     }
 
     /**
@@ -71,7 +73,7 @@ class UserController extends Controller
         }
 
         return $this->render('create', [
-            'models' => $model,
+            'model' => $model,
         ]);
     }
 
@@ -91,7 +93,7 @@ class UserController extends Controller
         }
 
         return $this->render('update', [
-            'models' => $model,
+            'model' => $model,
         ]);
     }
 

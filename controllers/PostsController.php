@@ -68,6 +68,7 @@ class PostsController extends Controller
      */
     public function actionView($id)
     {
+
         return $this->render('view', [
             'models' => $this->findModel($id),
         ]);
@@ -82,7 +83,7 @@ class PostsController extends Controller
     {
         $model = new Posts();
         $model->sort = 50;
-        $model->author_id = Yii::$app->user->identity->id;
+        //$model->author_id = Yii::$app->user->identity->id;
 
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

@@ -5,6 +5,7 @@ namespace app\modules\admin\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use app\models\BackendUser;
 
 /**
  * This is the models class for table "auth_assignment".
@@ -74,4 +75,6 @@ class AuthAssignment extends \yii\db\ActiveRecord
     {
         return $this->hasOne(AuthItem::className(), ['name' => 'item_name']);
     }
+
+
 }
