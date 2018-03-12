@@ -68,6 +68,7 @@ $config = [
                 'home' => 'site/index',
                 'posts' => 'posts/index',
                 'posts/create' => 'posts/create',
+                'posts/<alias:[-a-z]+>' => 'posts/test',
                 'contact' => 'site/contact',
                 'about' => 'site/about',
                 'posts/<id:\d+>' => 'posts/view',
