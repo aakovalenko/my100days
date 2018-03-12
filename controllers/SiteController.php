@@ -108,6 +108,7 @@ class SiteController extends Controller
             $user->password = Yii::$app->security->generatePasswordHash($model->password);
             $user->authKey = Yii::$app->security->generateRandomString();
 
+
             if ($user->save()) {
                 return $this->goHome();
             }

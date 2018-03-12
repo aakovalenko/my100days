@@ -35,7 +35,9 @@ AdminAsset::register($this);
               'attribute' => 'text',
                 'value' => function ($model) {
                     return \yii\helpers\StringHelper::truncate($model->text, 100);
-                }
+
+                },
+
 ],
             'picture',
             'date_create:datetime',

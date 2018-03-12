@@ -48,7 +48,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>John Doe</h2>
+                        <h2><?=Yii::$app->user->identity->username;?></h2>
                     </div>
                 </div>
                 <!-- /menu prile quick info -->
@@ -66,8 +66,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                 "items" => [
                                     ["label" => "Home", "url" => "/", "icon" => "home"],
                                     ["label" => "Layout", "url" => ["site/layout"], "icon" => "files-o"],
-                                    ["label" => "Posts", "url" => ["posts/index"], "icon" => "glyphicon glyphicon-comment"],
-                                    ["label" => "User", "url" => ["user/index"], "icon" => "glyphicon glyphicon-user"],
+                                    ["label" => "Posts", "url" => ["posts/index"], "icon" => "comment"],
+                                    ["label" => "User", "url" => ["user/index"], "icon" => "user"],
 
                                     [
                                         "label" => "RBAC",

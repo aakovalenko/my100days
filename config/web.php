@@ -1,4 +1,9 @@
 <?php
+use app\cart\storage\SessionStorage;
+Yii::$container->setSingleton('app\cart\ShoppingCart');
+Yii::$container->set('app\cart\storage\StorageInterface', function() {
+    return new SessionStorage(Yii::$app->session, 'primary-cart');
+});
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
@@ -43,7 +48,7 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -60,14 +65,16 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'home' => 'site/index',
                 'posts' => 'posts/index',
                 'posts/create' => 'posts/create',
                 'contact' => 'site/contact',
                 'about' => 'site/about',
-
-                    'posts/<url:[\w]+>' => 'posts/view/<id:[\w]+>',
+                'posts/<id:\d+>' => 'posts/view',
+                    //'posts/<url:[\w]+>' => 'posts/view/<id:[\w]+>',
                 '<module>/<controller>/<action>/<id:[\d]+>' => '<module>/<controller>/<action>',
                 'posts/<url:[\w]+>' => 'posts/one',
+
                 '<controller>/<action>/<id:[\d]+>' => 'admin',
 
             ],

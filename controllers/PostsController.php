@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Posts;
 use app\models\search\PostsSearch;
+use yii\db\ActiveRecord;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -70,7 +71,7 @@ class PostsController extends Controller
     {
 
         return $this->render('view', [
-            'models' => $this->findModel($id),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -83,7 +84,21 @@ class PostsController extends Controller
     {
         $model = new Posts();
         $model->sort = 50;
-        //$model->author_id = Yii::$app->user->identity->id;
+        $model->author_id = Yii::$app->user->identity->id;
+
+        $model->on(ActiveRecord::EVENT_AFTER_INSERT, function($event) {
+            $followers = ['john2@teleworm.us', 'shivawhite@cuvox.de', 'kate@dayrep.com'];
+
+            foreach($followers as $follower) {
+                Yii::$app->mailer->compose()
+                    ->setFrom('techblog@teleworm.us')
+                    ->setTo($follower)
+                    ->setSubject($event->sender->name)
+                    ->setTextBody($event->sender->description)
+                    ->send();
+            }
+            echo 'Emails has been sent';
+        });
 
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -91,7 +106,7 @@ class PostsController extends Controller
         }
 
         return $this->render('create', [
-            'models' => $model,
+            'model' => $model,
         ]);
     }
 
@@ -111,7 +126,7 @@ class PostsController extends Controller
         }
 
         return $this->render('update', [
-            'models' => $model,
+            'model' => $model,
         ]);
     }
 
