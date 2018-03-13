@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\components\CustomFilter;
 use Yii;
 use app\models\Posts;
 use app\models\search\PostsSearch;
+use yii\data\Pagination;
 use yii\db\ActiveRecord;
 use yii\helpers\Html;
 use yii\web\Controller;
@@ -22,12 +24,16 @@ class PostsController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => CustomFilter::className(),
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
             ],
+
         ];
     }
 
@@ -179,10 +185,21 @@ class PostsController extends Controller
 one words in the name') ;
     }
 
+    //Showing posts with alias test
     public function actionTest($alias)
     {
         return $this->renderContent(Html::tag('h2',
             'Showing post with alias ' . Html::encode($alias)
         ));
     }
+
+
+    public function actionHello($name)
+    {
+        return $this->renderContent(Html::tag('h2',
+            'Hello, ' . Html::encode($name) . '!'
+        ));
+    }
+
+
 }

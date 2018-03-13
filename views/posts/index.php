@@ -23,6 +23,7 @@ AdminAsset::register($this);
         <?= Html::a('Create Posts', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -51,6 +52,7 @@ AdminAsset::register($this);
             ],
         ],
     ]); ?>
+
 </div>
 
 <?php

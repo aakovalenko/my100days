@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
@@ -41,9 +42,17 @@ class Posts extends \yii\db\ActiveRecord
                 // если вместо метки времени UNIX используется datetime:
                 // 'value' => new Expression('NOW()'),
             ],
+           /* [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'url',
+                'slugAttribute' => 'url',
+                'immutable' => true,
+            ]*/
 
         ];
     }
+
+
 
     /**
      * @inheritdoc
